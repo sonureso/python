@@ -1,0 +1,56 @@
+Written By: Shubham Kumar
+==============Install DJango====================
+pip install django==2.2.4
+
+==============Create Project==============================
+django-admin startproject proj_nm
+# now go to folder containing manager.py
+
+==============Checking it=================================
+python manage.py runserver
+
+==============Create App==================================
+python manage.py startapp myapp
+
+==============write first view============================
+#myapp/views.py
+from django.http import HttpResponse
+def index(request):
+    return HttpResponse("Hello, world. You're at the polls index.")
+
+==============create urls.py file=========================
+#myapp/urls.py
+from django.urls import path
+from . import views
+urlpatterns = [
+    path('', views.index, name='index'),
+]
+
+==============add app urls.py to project urls.py===========
+==============since we have two urls.py now================
+#proj_nm/urls.py
+from django.contrib import admin
+from django.urls import include, path
+urlpatterns = [
+    path('myapp/', include('polls.urls')),
+    path('admin/', admin.site.urls),
+]
+
+===============Add this app(myapp) to settings==============
+#proj_nm/settings.py
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'myapp',
+]
+
+================now run the server============================
+open: http://127.0.0.1:8000/myapp/
+you'll see your views output..
+
+=================End Of Hello_World===========================
+

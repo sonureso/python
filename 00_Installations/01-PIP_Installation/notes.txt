@@ -1,0 +1,5 @@
+===========Keep This file in python37/Scripts============================
+1. open cmd and run : python get-pip.py
+2. This will install the python.
+
+===========End of PIP Installation=======================================

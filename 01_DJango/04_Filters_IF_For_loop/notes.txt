@@ -67,7 +67,10 @@ urlpatterns = [
 	path('myapp/', include('myapp.urls')),
 ]
 
-================7. Check Outputs at ===========================================
+================7. Run Server and Check Outputs at ===========================
+a). Run Server:
+     run: python manage.py runserver
+b). Check Links:
 1. http://127.0.0.1:8000/myapp/                
 2. http://127.0.0.1:8000/myapp/msg/
 3. http://127.0.0.1:8000/myapp/date/

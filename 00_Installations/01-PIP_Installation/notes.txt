@@ -1,3 +1,7 @@
+===========First Check if already in your system at=====================
+python37/Scripts Folder.
+
+If Not Then :
 ===========Keep This file in python37/Scripts============================
 1. open cmd and run : python get-pip.py
 2. This will install the python.

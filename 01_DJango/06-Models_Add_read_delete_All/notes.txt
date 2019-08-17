@@ -124,4 +124,25 @@ urlpatterns = [
 	c). http://127.0.0.1:8000/myapp/delete/   - this will delete all rows.
 
 =====================10. End of this part===========================================
+=====================11. Additionally from Admin Side===============================
+1. If You want to see your tables and data in admin side.
+2. Update the myapp/admin file as follows:
+#myapp/admin.py
+-------------------------------------------------------------------------------------
+from django.contrib import admin
+from .models import Dreamreal
+
+admin.site.register(Dreamreal)
+--------------------------------------------------------------------------------------
+now you can see all data in admin:
+
+
+
+
+
+
+
+
+
+
 

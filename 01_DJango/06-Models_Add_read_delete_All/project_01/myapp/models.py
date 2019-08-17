@@ -8,4 +8,5 @@ class Dreamreal(models.Model):
 	
 	class Meta:
 		db_table = "dreamreal"
-	
+	def __str__(self):
+		return self.name

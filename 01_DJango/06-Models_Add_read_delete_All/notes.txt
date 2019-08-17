@@ -33,8 +33,16 @@ class Dreamreal(models.Model):
 	name = models.CharField(max_length = 50)
 	phonenumber = models.IntegerField()
 	
+	#optional
 	class Meta:
 		db_table = "dreamreal"	
+	#optional
+	def __str__(self):
+		return self.name
+	#optional 
+	def get_name(self):
+		return "Mr. "+self.name+"."
+		#you can do manipulations and then return data.
 -----------------------------------------------------------------------
 run: python manage.py makemigrations myapp
 run: python manage.py migrate myapp
@@ -71,11 +79,12 @@ def add(request):
 	return HttpResponse('Data Saved')
 
 def read(request):
-	objects = Dreamreal.objects.all()
+	objects = Dreamreal.objects.all()  #.order_by('name') can also be used.
 	res =''
 	for elt in objects:
 		res += "Name: "+elt.name+", Mail: "+elt.mail+"\n\n"
 	return render(request,'print.html',{'data':res})
+# Here you can pass whole objects as well and use for loop in HTML file.
 	
 def delete(request):
 	rows = Dreamreal.objects.all()

@@ -44,6 +44,10 @@ class Dreamreal(models.Model):
 		return "Mr. "+self.name+"."
 		#you can do manipulations and then return data.
 -----------------------------------------------------------------------
+#other info: 
+#you can use this : for making a columns with foreign key.
+online = models.ForeignKey('Online', default = 1)
+
 run: python manage.py makemigrations myapp
 run: python manage.py migrate myapp
 

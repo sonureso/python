@@ -7,3 +7,5 @@ If Not Then :
 2. This will install the python.
 
 ===========End of PIP Installation=======================================
+Checking location of any installed API: os.path.abspath(API_name.__file__)
+

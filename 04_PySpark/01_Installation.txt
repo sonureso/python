@@ -1,3 +1,8 @@
+1. Install Java(Set JAVA_HOME & Path)
+2. Install Python
+3. Download Winutils and keep at - C:\winutils\bin\winutils.exe (Set HADOOP_HOME)
+4. Download PySpark(Set SPARK_HOME & Path)
+
 ================1. JAVA===============================
 1. Install Java 8 or Higher version.
 2. Set JAVA_HOME : C:\Program Files\Java\jdk-9.0.4
@@ -29,6 +34,3 @@
 
 
 
-
-
-================1. Installing Java==================

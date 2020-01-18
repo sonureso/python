@@ -1,0 +1,142 @@
+map
+flastmap
+filter
+mapPartitions
+mapPartitionsWithIndex
+sample
+union
+intersection
+distinct
+groupBy
+keyBy
+Zip
+zipwithIndex
+Coalesce
+Repartition
+sortBy
+
+=============================================
+1. Map:
+#Using map:
+x = sc.parallelize(["Red","Green","Blue","Yellow"])
+y = x.map(lambda x:(x+str(2)))
+y.collect()
+
+2. flatMap:
+#Using flatMap:
+x = sc.parallelize([2,3,4])
+y = x.flatMap(lambda x:range(1,x)).collect()
+print(y)
+sorted(y)
+
+3. filter:
+# Using Filter:
+x = sc.parallelize([2,5,6,8,1,5,8,9,6,3])
+y = x.filter(lambda x : x%2==0).collect()
+y
+
+4. sample:
+#Take one sample without replacement from each cluster:
+x = sc.parallelize(range(1,10))
+x.sample(False,1,0).collect()
+o/p: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+5. Union & Intersection:
+#Union&intersection:
+x = sc.parallelize(range(1,9))
+y = sc.parallelize(range(5,15))
+z = x.union(y).collect()
+z2 = x.intersection(y).collect()
+print("Union: ",z," Intersection: ",z2)
+
+6. DIstinct:
+#Distinct:
+x = sc.parallelize(range(1,9))
+y = sc.parallelize(range(5,15))
+z = x.union(y).distinct().collect()
+z
+
+7. sortBy:
+#sortBy:
+x = sc.parallelize([2,8,9,5,4,7,1,1,2,3])
+x.sortBy(lambda x:x,False).collect()
+o/p:[9, 8, 7, 5, 4, 3, 2, 2, 1, 1]
+=============================================
+y = sc.parallelize([("A",2),("Z",28),("I",15),("D",10)])
+y.sortBy(lambda x:x,True).collect()
+o/p: [('A', 2), ('D', 10), ('I', 15), ('Z', 28)]
+
+8. mapPartitions:
+#mapPartitios:
+x = sc.parallelize([1,2,3,4,5,6],2) #2 is no of clusters.
+def f(cluster): yield sum(cluster)
+x.mapPartitions(f).collect()
+o/p: [6, 15]
+
+9. mapPartitionsWithIndex:
+#mapPartitios:
+x = sc.parallelize([1,2,3,4,5,6],5)
+def f(index,cluster): yield index
+x.mapPartitionsWithIndex(f).sum()
+o/p: 10
+
+10. groupBy:
+# groupBy:
+rdd = sc.parallelize([1,1,2,3,5,8])
+result = rdd.groupBy(lambda x: x%2).collect()
+sorted([(x,sorted(y)) for (x,y) in result])
+o/p: [(0, [2, 8]), (1, [1, 1, 3, 5])]
+
+11. keyBy:
+=============Don't know what it is:========================
+#keyBy:
+x = sc.parallelize(range(0,3)).keyBy(lambda x:x*x)
+y = sc.parallelize(zip(range(0,5), range(0,5)))
+[(x, list(map(list,y))) for x,y in sorted(x.cogroup(y).collect())]
+
+12. zip:
+#zip:
+x = sc.parallelize(range(0,5))
+y = sc.parallelize(range(1000,1005))
+x.zip(y).collect()
+o/p: [(0, 1000), (1, 1001), (2, 1002), (3, 1003), (4, 1004)]
+
+13. zipWithIndex:
+#zip:
+sc.parallelize(["a","b","c","d"]).zipWithIndex().collect()
+
+
+14.Partition:
+#partitioning:
+rdd = sc.parallelize([1,2,3,4,5,6,7],4)
+rdd.glom().collect()
+o/p: [[1], [2, 3], [4, 5], [6, 7]]
+====================================
+rdd.repartition(2).glom().collect()
+o/p: [[1, 4, 5, 6, 7], [2, 3]]
+
+15. Coalesce: (Didn't get it)
+#Coalesce:
+sc.parallelize([1,2,3,4,5],3).glom().collect()
+o/p: [[1], [2, 3], [4, 5]]
+================================
+sc.parallelize([1,2,3,4,5],3).coalesce(2).glom().collect()
+o/p: [[1], [2, 3, 4, 5]]
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

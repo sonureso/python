@@ -1,0 +1,18 @@
+You should be familiar with python's famous libraries: Pandas and scikit-learn. 
+These two libraries are fantastic to explore dataset up to mid-size. 
+Regular machine learning projects are built around the following methodology:
+
+Load the data to the disk
+Import the data into the machine's memory
+Process/analyze the data
+Build the machine learning model
+Store the prediction back to disk
+
+The problem arises if the data scientist wants to process data that's too big for one computer.
+During earlier days of data science, the practitioners would sample the as training on huge 
+data sets was not always needed. The data scientist would find a good statistical sample, 
+perform an additional robustness check and comes up with an excellent model.
+
+Pyspark gives the data scientist an API that can be used to solve the parallel data 
+proceedin problems. Pyspark handles the complexities of multiprocessing, such as distributing
+the data, distributing code and collecting output from the workers on a cluster of machines.

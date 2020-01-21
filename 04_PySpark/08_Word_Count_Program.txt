@@ -1,0 +1,7 @@
+#Word Count Program:
+rdd = sc.textFile("hello.txt")
+rdd.collect()
+nonempty_lines = rdd.filter(lambda x: len(x) > 0)
+words = nonempty_lines.flatMap(lambda x: x.split(' '))
+wordcount = words.map(lambda x:(x,1)).reduceByKey(lambda x,y: x+y)
+wordcount.collect()

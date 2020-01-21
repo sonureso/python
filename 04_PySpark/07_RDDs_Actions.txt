@@ -1,0 +1,65 @@
+
+====================RDD-Actions======================================
+RDD_Actions: Reduce(func), first, takeOrdered, take, count, collect, collectasMap, saveAsTextFile, foreachPartition,
+Foreach, Max, Min, Sum, Mean, Varience, stdev
+
+=====================================================================
+1. Reduce(func):
+from operator import add
+sc.parallelize([1,2,3,4,5]).reduce(add)
+o/p: 15
+
+2. first():
+#fisrt:
+sc.parallelize([2,3,6,8,5,9]).first()
+o/p: 2
+
+3. takeOrdered():
+#takeOrdered:
+nums = sc.parallelize([5,1,2,0,3,8,9,4])
+nums.takeOrdered(5)
+o/p: [0, 1, 2, 3, 4]
+
+4. take():
+#takeOrdered:
+nums = sc.parallelize([5,1,2,0,3,8,9,4])
+nums.take(5)
+o/p: [5, 1, 2, 0, 3]
+
+5. count():
+#count():
+nums = sc.parallelize([5,1,2,0,3,8,9,4])
+nums.count()
+o/p: 8
+
+6. collect():
+#Collect: Returns a list:
+c = sc.parallelize(["abc","xyz","mno","xyz","abc","mno"])
+c.distinct().collect()
+
+7. saveAsTextFile():
+#SaveAsTextFile:
+a = sc.parallelize(range(1,10000),3)
+a.saveAsTextFile('sample1')
+x = sc.parallelize([1,2,3,4,5,6,7,8,9,10,21],3)
+x.saveAsTextFile('sample2.txt')
+# it will save sample2.txt folder, but can read same as follows:
+txt = sc.textFile('sample2.txt')
+txt.collect()
+
+8. maths functions:
+#min, max, sum, mean, variance, stdev:
+nums = sc.parallelize(range(1,100))
+print(nums.min())
+print(nums.max())
+print(nums.mean())
+print(nums.sum())
+print(nums.variance())
+print(nums.stdev())
+o/p: 1	99	50.0	4950	816.6666666666666	28.577380332470412
+
+
+
+
+
+	

@@ -53,7 +53,23 @@ def delete(request):
 		books[i].delete()
 	return HttpResponse('All Books Deleted.')
 
-==========================5. Complete it==============================================
+=========================5. Create myapp/templates/list_view.html====================
+<html>
+<body>
+<center>
+<h3>
+List of Books.
+{% for b in object_list %}
+Name: {{b.name}} and its price is {{b.price}}
+</br>
+{%endfor%}
+</h3>
+</center>
+</body>
+</html>
+
+
+==========================6. Complete it==============================================
 Do the remaining stuff and run:
 1. http://127.0.0.1:8000/myapp/add/
 2. http://127.0.0.1:8000/myapp/read/

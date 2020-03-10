@@ -60,7 +60,7 @@ admin.site.register(CustomUser, CustomUserAdmin)
 
 =================4. settings.py==============================
 1. Add below app:
-	'myapp','allauth','allauth.account','allauth.socialaccount'
+	'myapp','allauth','allauth.account','allauth.socialaccount','django.contrib.sites',
 	
 2. Add user model name:
 	AUTH_USER_MODEL = 'myapp.CustomUser'

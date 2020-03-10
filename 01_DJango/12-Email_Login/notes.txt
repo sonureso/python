@@ -1,8 +1,11 @@
-
+♦Tutorial Followed: https://wsvincent.com/django-login-with-email-not-username/
 1. Email login system.
 
 
 1. Create Hello world project.
+=============================================
+add below line to settings.py
+AUTH_USER_MODEL = 'myapp.CustomUser'
 
 
 ===============1. myapp/models.py=============================================

@@ -85,9 +85,6 @@ admin.site.register(CustomUser, CustomUserAdmin)
 	ACCOUNT_AUTHENTICATION_METHOD = 'email'
 	ACCOUNT_UNIQUE_EMAIL = True
 
-	LOGIN_REDIRECT_URL = 'home'
-	ACCOUNT_LOGOUT_REDIRECT_URL = 'home'
-	
 	
 *NOTE: run below command:
 	1. python manage.py migrate
@@ -148,6 +145,11 @@ def index(request):
 		  {{ form.as_p }}
 		  <button type="submit">Sign Up</button>
 		</form>
+		
+		
+NOW UPDATE setting.py:
+LOGIN_REDIRECT_URL = 'home'
+ACCOUNT_LOGOUT_REDIRECT_URL = 'home'
 	
 =========================================================
 Finally visit:

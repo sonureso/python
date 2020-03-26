@@ -1,6 +1,6 @@
 Link followed: https://testdriven.io/blog/django-custom-user-model/
 info: We will create a sample signup and login, logout system.
-
+*For more easy signup system, follow: https://www.youtube.com/watch?v=BS1_sILek_w
 
 1. Create hello world project.
 2. Register myapp in settings.py

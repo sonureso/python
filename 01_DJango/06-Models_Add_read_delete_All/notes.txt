@@ -32,7 +32,8 @@ class Dreamreal(models.Model):
 	mail = models.CharField(max_length = 50)
 	name = models.CharField(max_length = 50)
 	phonenumber = models.IntegerField()
-	
+	# if you are adding new field add: null=True OR default=" "
+	# blank = True -- is also an option to use.
 	#optional
 	class Meta:
 		db_table = "dreamreal"	

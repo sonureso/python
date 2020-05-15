@@ -1,6 +1,7 @@
 ========================1. Form Processing============================================
 1. Create Hello World Code
 2. Create myapp/forms.py as follows:
+3. How to send email.
 --------------------------------------------------------------------------------------
 #myapp/forms:
 from django import forms
@@ -32,6 +33,15 @@ def login(request):
 		MyLoginForm = LoginForm()
 		
 	return render(request, 'loggedin.html', {"username" : username})
+------------------------------------------------------------------------------------------
+OR additional gyan:
+	form = LoginForm(request.POST or None)
+	if form.is_valid():
+		print request.POST
+		print form.cleaned_data['username']
+	context = locals()
+	return render(request,template,context)
+
 ------------------------------------------------------------------------------------------
 ========================3. Update myapp/urls.py===========================================
 from django.urls import path
@@ -73,6 +83,13 @@ urlpatterns = [
    </body>
 </html>
 # only use function name (of views.py) in form action 
+--------------------------------------------------------------------------------------------
+#additional gyan:
+<form method="POST" action="">
+{% csrf_token %}
+{% form.as_p %}
+<input type="submit">
+</form>
 ---------------------------------------------------------------------------------------------
 #myapp/templates/loggedin.html
 <html>
@@ -90,7 +107,26 @@ urlpatterns = [
 
 
 =============================6. End of this part==============================================
-
+=============================3. SENDING EMAILS================================================
+1. make changes to settings.py:
+	EMAIL_HOST = 'smtp.gmail.com'
+	EMAIL_HOST_USER = 'your gamil email'
+	EMAIL_HOST_PASSWORD = 'Your gmail Password'
+	EMAIL_PORT = '587' # port for gmail
+	EMAIL_USE_TLS = True
+2. For views.py do the following:
+	from django.conf import settings
+	if form.is_valid():
+		name=form.cleaned_data['name']
+		comment=form.cleaned_data['comment']
+		subject = "Message from contact form"
+		message = comment
+		emailfrom = form.cleaned_data['email']
+	 	emailto = [settings.EMAIL_HOST_USER]
+		send_mail(subject,message,emailfrom,emailto,fail_silently=True)
+	context = locals()
+	template = 'contact.html'
+	return render(request,template,context)
 
 
 

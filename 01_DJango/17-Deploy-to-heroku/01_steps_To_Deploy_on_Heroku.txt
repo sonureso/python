@@ -1,0 +1,17 @@
+Deploy Django project on heroku:
+===========================
+1. Install Github desktop and set the path:
+2. Check by git --version on cmd
+3. Download and install heroku CLI: link:https://devcenter.heroku.com/articles/getting-started-with-python#set-up
+4. check this installation on cmd by: "heroku login"
+5. Now clone your project or sample python project
+Ex: git clone https://github.com/heroku/python-getting-started.git
+6. go inside the project folder: cd python-getting-started
+7. create heroku app: heroku create
+8. set one instance: heroku ps:scale web=1
+9. heroku open: This will open up the project.
+10. You are done,
+
+
+
+ 

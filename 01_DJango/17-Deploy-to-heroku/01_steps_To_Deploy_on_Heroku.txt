@@ -8,6 +8,7 @@ Deploy Django project on heroku:
 Ex: git clone https://github.com/heroku/python-getting-started.git
 6. go inside the project folder: cd python-getting-started
 7. create heroku app: heroku create
+8. now run: git push heroku master
 8. set one instance: heroku ps:scale web=1
 9. heroku open: This will open up the project.
 10. You are done,

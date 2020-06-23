@@ -1,6 +1,8 @@
 Written By: Shubham Kumar
 ==============Install DJango====================
 pip install django==2.2.4
+(optionally) You can create virtual environment: python -m venv my_env
+                cd my_env/Scripts and type activate..
 
 ==============Create Project==============================
 django-admin startproject proj_nm

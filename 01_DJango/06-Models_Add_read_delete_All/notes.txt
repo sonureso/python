@@ -147,7 +147,15 @@ from django.contrib import admin
 from .models import Dreamreal
 
 admin.site.register(Dreamreal)
---------------------------------------------------------------------------------------
+-------------------------------------another example for registering to admin------
+from django.contrib import admin
+from .models import Game
+
+@admin.register(Game)
+class GameAdmin(admin.ModelAdmin):
+	list_display = ('id','first_player','second_player','status')
+	list_editable = ('status',)
+------------------------------------------------------------------------------------
 now you can see all data in admin:
 
 

@@ -1,6 +1,7 @@
 ===============1. ToDo ==================================
 1. Making a template.html 
 2. Using that template in other html page
+3. Another Approach 2
 
 ===============2. Create project and app=================
 1. Create Project:
@@ -65,5 +66,22 @@ def index(request):
 	run: python manage.py runserver
 2. Check:
 	http://127.0.0.1:8000/myapp/
-
-===============8. End of this part==========================
+	
+============================================================
+===============8. Approach #2===============================
+You can create the template and static folder on root label.
+then create sub-folders inside that with app names 
+ex: project/templates/app/home.html 
+also keep base.html just inside templates.
+Do the following changes for these in settings.py:
+---------------------------------------
+1. TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [os.path.join(BASE_DIR,"templates")],
+----------------------------------------
+2. STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+	os.path.join(BASE_DIR,"static")
+]
+===============================================================

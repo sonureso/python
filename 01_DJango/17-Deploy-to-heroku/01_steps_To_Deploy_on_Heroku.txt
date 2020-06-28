@@ -1,7 +1,9 @@
 NOTE: Before deploy your django project need to be configured.
 How to configure.
 1. Create a file with the name: "Procfile" 
-    with content as below: web: gunicorn myproject.wsgi
+    with content as below: (first line only if there is databse.)
+    release: python manage.py migrate
+    web: gunicorn myproject.wsgi
 2. Create a requirements.txt with contents as below:
     django
     gunicorn

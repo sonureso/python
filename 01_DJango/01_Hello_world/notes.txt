@@ -1,4 +1,7 @@
 Written By: Shubham Kumar
+==========(if you want to create everything seperate create virtual environment)
+==========python -m venv envname
+
 ==============Install DJango====================
 pip install django==2.2.4
 (optionally) You can create virtual environment: python -m venv my_env

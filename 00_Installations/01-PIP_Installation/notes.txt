@@ -8,4 +8,8 @@ If Not Then :
 
 ===========End of PIP Installation=======================================
 Checking location of any installed API: os.path.abspath(API_name.__file__)
+=========================================================================
+
+#if having issues with already installed packages
+use: pip install --ignore-installed pckagenm
 

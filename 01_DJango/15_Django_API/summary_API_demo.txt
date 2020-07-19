@@ -1,3 +1,4 @@
+NOTE: For AJAX calls visit this tutorial: https://www.youtube.com/watch?v=KgnPSmrQrXI
 For making API in Django follow the steps:
 1. install:  pip install djangorestframework
 2. add 'rest_framework' in installed_apps in settings.py

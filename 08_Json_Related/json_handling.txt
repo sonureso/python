@@ -1,0 +1,12 @@
+#Saving json File:
+json_file = open('name.txt',"w",encoding="utf-8")
+
+json.dump(d2,json_file,ensure_ascii=False,indent=4)
+
+json_file.close()
+
+=============================================
+# Disply the json data:
+json_object = json.dumps(data)
+print(json_object)
+
